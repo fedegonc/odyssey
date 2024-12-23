@@ -1,76 +1,17 @@
 ---
-import { Container, FeatureCard } from '@components/odyssey-theme';
-
 import Layout from '../layouts/Page.astro';
-import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
 ---
 
 <Layout>
-	<HomeHeroSection />
-	<Container>
-		<section class="feature-card__section">
-			<h2>Tallados en Madera</h2>
-			<p>
-				Descubre nuestros tallados en madera hechos a mano, creados con pasión y precisión.
-			</p>
-			<div class="feature-card__grid">
-				<FeatureCard href="/wooden-carvings/design-1" title="Diseño 1" imgSrc="/assets/images/home/screenshots/wooden-design-1">
-				</FeatureCard>
-				<FeatureCard href="/wooden-carvings/design-2" title="Diseño 2" imgSrc="/assets/images/home/screenshots/wooden-design-2">
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
-
-	<Container>
-		<section class="feature-card__section">
-			<h2>Proyectos Personalizados</h2>
-			<p>
-				Haz realidad tus ideas con nuestros servicios personalizados de tallado en madera.
-			</p>
-			<div class="feature-card__grid">
-				<FeatureCard href="/custom-projects/gallery" title="Galería" imgSrc="/assets/images/home/screenshots/custom-gallery">
-				</FeatureCard>
-				<FeatureCard href="/custom-projects/contact" title="Contáctanos" imgSrc="/assets/images/home/screenshots/custom-contact">
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
-
-	<Container>
-		<section class="feature-card__section">
-			<h2>Sobre Nuestro Arte</h2>
-			<p>Conoce más sobre nuestras técnicas, materiales y dedicación a la calidad.</p>
-			<div class="feature-card__grid">
-				<FeatureCard
-					href="/about/our-story"
-					imgSrc="/assets/images/home/screenshots/our-story"
-					title="Nuestra Historia"
-				>
-				</FeatureCard>
-				<FeatureCard
-					href="/about/materials"
-					imgSrc="/assets/images/home/screenshots/materials"
-					title="Materiales"
-				>
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
+	<section class="feature-card__section">
+		<h2>Tallados en Madera</h2>
+		<p>Descubre nuestros tallados en madera hechos a mano, creados con pasión y precisión.</p>
+	</section>
 </Layout>
 
 <style>
 	.feature-card__section {
 		margin: var(--section-margin) auto;
-	}
-	.feature-card__grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--theme-grid-gap);
-	}
-	@media (max-width: 768px) {
-		.feature-card__grid {
-			grid-template-columns: 1fr;
-		}
+		text-align: center;
 	}
 </style>
