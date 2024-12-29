@@ -1,0 +1,135 @@
+---
+export interface Props {
+  headerTitle: string;
+  footerText: string;
+}
+
+const { headerTitle, footerText } = Astro.props;
+---
+
+<div class="layout">
+  <header class="header">Header (Trust Front of the Page)</header>
+  <div class="left">Left Sidebar (Navigation)</div>
+  <main class="center">Main Content (Articles)</main>
+  <div class="right">Right Sidebar (Extras)</div>
+  <footer class="footer">Footer (Trust Front of the Page)</footer>
+</div>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-areas:
+      "header header header"
+      "left center right"
+      "footer footer footer";
+    gap: 1rem;
+    height: 100vh;
+  }
+
+  .header {
+    grid-area: header;
+    background-color: #8b8000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 1rem;
+  }
+
+  .left {
+    grid-area: left;
+    background-color: #008080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    padding: 1rem;
+    min-width: 150px;
+  }
+
+  .center {
+    grid-area: center;
+    background-color: #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    padding: 1rem;
+    overflow-wrap: break-word;
+  }
+
+  .right {
+    grid-area: right;
+    background-color: #0000ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    padding: 1rem;
+    min-width: 150px;
+  }
+
+  .footer {
+    grid-area: footer;
+    background-color: #ffd700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .layout {
+      grid-template-rows: auto 1fr auto auto auto;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "header"
+        "center"
+        "left"
+        "right"
+        "footer";
+      gap: 1rem;
+      height: auto;
+    }
+
+    .header, .footer {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .left, .right {
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .center {
+      padding: 2rem;
+      min-height: 200px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .layout {
+      grid-template-columns: 150px 1fr 150px;
+      grid-template-rows: 80px 1fr 60px;
+    }
+
+    .left, .right {
+      min-width: 120px;
+    }
+
+    .center {
+      padding: 1.5rem;
+    }
+  }
+</style>
